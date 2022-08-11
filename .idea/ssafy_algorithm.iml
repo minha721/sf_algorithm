@@ -4,5 +4,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="algorithm-python" />
+    <orderEntry type="module" module-name="AlgorithmStudy" />
   </component>
 </module>
