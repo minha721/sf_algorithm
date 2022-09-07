@@ -25,17 +25,11 @@ def check_pass(pwd):
 T = int(input())
 for tc in range(T):
     n, m = map(int, input().split())
-    arr = sorted(list(set([input() for _ in range(n)])))[1:]
+    arr = sorted(list(set([input().rstrip() for _ in range(n)])))[1:]
 
-    numbers = []
-    for a in arr:
-        a = a.strip('0')
-        numbers.append(a)
-
-    answer = 0
-    for n in numbers:
-        print(n)
-        binary = format(int(n, 16), 'b')
+    pwd = []
+    for n in arr:
+        binary = format(int(n, 16), 'b').strip('0')
         n1 = n2 = n3 = 0
         password = []
         for i in range(len(binary)):
@@ -51,10 +45,14 @@ for tc in range(T):
                 password.append(pw)
                 n1 = n2 = n3 = 0
 
-                if len(password) == 8:
-                    chk, s = check_pass(password)
-                    password.clear()
-                    if chk % 10 == 0:
-                        answer += s
-
-    print('#{} {}'.format(tc + 1, answer))
+            if len(password) == 8:
+                pwd.append(password)
+    print(pwd)
+    # pwd = list(set(pwd))
+    # answer = 0
+    # for p in pwd:
+    #     chk, s = check_pass(p)
+    #     if chk % 10 == 0:
+    #         answer += s
+    #
+    # print('#{} {}'.format(tc + 1, answer))
